@@ -1,0 +1,81 @@
+Riya Verma
+HB.ID: 962402620
+
+1) Can you provide an example of a custom exception class in C++?
+#include <iostream>
+using namespace std;
+class custom : public exception 
+{
+    public:
+		void get() 
+		{
+        	cout<<"Customised Exception"<<endl;
+    	}
+};
+int main() 
+{
+    try 
+	{
+        throw custom();
+    } 
+	catch (custom c) 
+	{
+        c.get();
+    }
+}
+
+___________________________________________________________________________________________________________________________________________________________________________________________
+2) What happens if an exception is not caught in a C++ program?
+If an exception is thrown and not caught then depending on compiler an error message is displayed saying the catch block is not declared and in some compiler
+the program is terminated giving erro message as "terminate called after throwing an instance of 'char'", since there is no catch block to catch the character.
+
+___________________________________________________________________________________________________________________________________________________________________________
+3) What is the difference between a try-catch block and a try-throw-catch block?
+In a try-catch block, the expection handling program contains only two blocks eing try and catch. Whenever there occurs an erro in try block the ctach block will 
+automatically get implmented without calling it. This structure of exception handling is usually visible in java.
+
+In try-throw-catch blockthe program contains three parts being try{} where the criteria for exception is declared, next is throw from where the program execution shifts 
+catch block where what action to perform in case of corresponding error according throw is specified. This type of structure in mostly used in C, C++ and java and is 
+mostly accepted by all the compliers.
+______________________________________________________________________________________________________________________________________________________________________________
+4) How do you re-throw an exception in C++? WITH EXAMPLE
+
+_________________________________________________________________________________________________________________________________________________________________________________
+5) OUTPUT OF THE FOLLOWING PROGRAM.
+#include <iostream>  
+#include <exception>  
+using namespace std;  
+class MyException : public exception{  
+    public:  
+        const char * what() const throw()  
+        {  
+            return "Attempted to divide by zero!\n";  
+        }  
+};  
+int main()  
+{  
+    try  
+    {  
+        int x, y;  
+        cout << "Enter the two numbers : \n";  
+        cin >> x >> y;  
+        if (y == 0)  
+        {  
+            MyException z;  
+            throw z;  
+        }  
+        else  
+        {  
+            cout << "x / y = " << x/y << endl;  
+        }  
+    }  
+    catch(exception& e)  
+    {  
+        cout << e.what();  
+    }  
+}  
+o/p:-
+no.= 7,0
+Attempted to divide by zero!
+
+
