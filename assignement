@@ -39,7 +39,39 @@ catch block where what action to perform in case of corresponding error accordin
 mostly accepted by all the compliers.
 ______________________________________________________________________________________________________________________________________________________________________________
 4) How do you re-throw an exception in C++? WITH EXAMPLE
-
+An exception can be thrown again using functions 
+#include <iostream>
+using namespace std;
+void except1()
+{
+   	try
+   	{
+       throw "EXCEPTION";
+   	}
+   	catch (const char*)
+   	{
+   	cout <<"INSIDE THE FUNC"<<endl;
+   	throw ;
+   	}
+}
+int main()
+{
+   	cout<<"Starting program"<<endl;
+   	try
+   	{
+       except1();
+   	}
+   	catch(const char*)
+   	{
+      cout <<"INSIDE MAIN"<<endl;
+   	}
+    cout<<"Program end"<<endl;
+    return 0;
+}
+Here, first catch was called using try block in main(),  which directed to the void except1 function, in the excpet1 function again the try bock was executed and in 
+the same function throw and catch block was called. 
+In the catch block the, char was again rethrown which was then caught by the main function.
+It is important to choose the same parameter for catch block.
 _________________________________________________________________________________________________________________________________________________________________________________
 5) OUTPUT OF THE FOLLOWING PROGRAM.
 #include <iostream>  
